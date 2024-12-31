@@ -2,23 +2,71 @@
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.0.
 
-## Code scaffolding
 
-Run `ng generate component component-name --project ngx-progress-chart` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-progress-chart`.
-> Note: Don't forget to add `--project ngx-progress-chart` or else it will be added to the default project in your `angular.json` file. 
+## Installation
+Install the library via npm:
+`npm install ngx-progress-chart`
 
-## Build
+## Usage
 
-Run `ng build ngx-progress-chart` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 1.Install the library:
+```bash
+npm install ngx-progress-chart
+```
 
-## Publishing
+### 2. Import the Module
+In your Angular application, import the NgxProgressChartModule in your 
+AppModule or any other module where you plan to use it:
 
-After building your library with `ng build ngx-progress-chart`, go to the dist folder `cd dist/ngx-progress-chart` and run `npm publish`.
+```typescript
+import { NgxProgressChartModule } from 'ngx-progress-chart';
 
-## Running unit tests
+@NgModule({
+  declarations: [...],
+  imports: [
+    NgxProgressChartModule,
+    ...
+  ],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
 
-Run `ng test ngx-progress-chart` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 3. Add the Component to Your Template
+#### simple usage:
+```html
+<ngx-progress-chart 
+    [progressWidth]="75"
+    [tooltip]="'75%'"
+    [progressFillStyle]="{ 'background-color': '#4caf50' }"
+    >
+</ngx-progress-chart>
+```
 
-## Further help
+#### detialed usage:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```html
+<ngx-progress-chart
+  [labels]="['0%', '50%', '100%']"
+  [progressWidth]="75"
+  [tooltipClass]="'custom-tooltip'"
+  [tooltip]="'75%'"
+  [containerClasses]="['custom-container']"
+  [progressBarClasses]="['custom-progress-bar']"
+  [progressFillClasses]="['custom-progress-fill']"
+  [labelsClasses]="['custom-label']"
+  [containerStyle]="{ 'background-color': '#f3f3f3', padding: '10px' }"
+  [progressBarStyle]="{ 'background-color': '#ddd' }"
+  [progressFillStyle]="{ 'background-color': '#4caf50' }"
+  [labelsStyle]="{ 'font-size': '14px', color: '#333' }"
+></ngx-progress-chart>
+```
+define custom styles for your classes in your styles file
+
+```
+.custom-container {...} 
+.custom-progress-bar{...}
+...
+```
+
+
