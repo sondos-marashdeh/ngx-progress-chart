@@ -1,7 +1,10 @@
-
-
-
-import { Component, Input, OnInit, SimpleChanges } from "@angular/core";
+import {
+  Component,
+  Input,
+  OnInit,
+  SimpleChanges,
+  ViewEncapsulation,
+} from "@angular/core";
 
 @Component({
   selector: "ngx-progress-chart",
@@ -23,7 +26,8 @@ import { Component, Input, OnInit, SimpleChanges } from "@angular/core";
           [style]="progressFillStyle"
         >
           <span
-            [class]="['tooltipDefault', tooltipClass]"
+            class="tooltipDefault"
+            [class]="[tooltipClass]"
             [style.left]="currentProgressWidth / 2 - 3 + '%'"
           >
             {{ tooltip ? tooltip : currentProgressWidth + "%" }}
@@ -44,18 +48,21 @@ import { Component, Input, OnInit, SimpleChanges } from "@angular/core";
       .progress-container {
         width: 100%;
         position: relative;
+        padding: 0px 10px;
       }
 
       .progress-bar {
         height: 45px;
         border-radius: 8px;
         overflow: hidden;
+        background-color: #eee;
       }
 
       .progress-fill {
         height: 100%;
         border-radius: 3px;
         width: 0%;
+        background-color: #ccc;
       }
       .progress-fill:hover {
         .tooltipDefault {
@@ -73,6 +80,7 @@ import { Component, Input, OnInit, SimpleChanges } from "@angular/core";
         animation: fadeIn 0.8s forwards !important;
         padding: 4px 8px;
         background-color: #fff;
+        border: 1px solid #eee;
       }
       .progress-labels {
         display: flex;
@@ -96,7 +104,7 @@ import { Component, Input, OnInit, SimpleChanges } from "@angular/core";
         }
       }
     `,
-  ],
+  ]
 })
 export class NgxProgressChartComponent implements OnInit {
   @Input() labels: any[] = [];

@@ -61,7 +61,7 @@ export class AppModule {}
   [labelsStyle]="{ 'font-size': '14px', color: '#333' }"
 ></ngx-progress-chart>
 ```
-define custom styles for your classes in your styles file
+define custom styles for the package in your ```global styles file```
 
 ```
 .custom-container {...} 
